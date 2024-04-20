@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Tuska Open Air",
+    "description": "Tuska Festivaali on Pohjoismaiden suurimpia metallimusiikin tapahtumia, joka kokoaa yhteen raskaanmusiikin ystäviä kolmen päivän aikana. Tapahtumaa on järjestetty vuodesta 1998 alkaen, ja Suvilahti on toiminut tapahtuman kotipaikkana vuodesta 2011 lähtien.\n\nTuskan missio on esitellä raskaanmusiikin artisteja monipuolisesti ottaen huomioon musiikin eri genret sekä artistien erilaiset vaiheet: Tuskasta löytyy paikka suurille tähdille yhtä lailla kuin uudelle musiikille ja kasvaville tulevaisuuden artisteille.\n\nMusiikkiohjelman lisäksi Tuska kasvattaa pitkäjänteisesti puheohjelman, taiteen ja pienyrittäjyyden näkyvyyttä. Puheohjelma tuo näkyväksi kriittisiä aiheita muiden muassa mielenterveyteen, tasa-arvoon ja tekoälyn jalansijaan liittyen. Tuska Expo esittelee taidetta ja käsityöläisyyttä mahdollistaen mikro- ja pienyrittäjien esillepääsyn suurtapahtumassa. Tuskan Sideshow -ohjelmassa korostuu erityisesti kulttuurinen monimuotoisuus, hyvinvointi ja kehopositiivisuus.\n\nTuska pyrkii jatkuvaan oppimiseen, monimuotoistumiseen sekä kestävään kehitykseen vastuullisuus- ja vaikuttavuustyön parissa. Teemme tätä työtä aktiivisesti paitsi Ekokompassin, Tapahtumateollisuus ry:n ja Yourope:n kanssa, myös edunvalvontajärjestö MaRa:ssa ja yhteistyössä LiveFIN ry:n kanssa.",
+    "startTime": "2024-06-28T11:00:00Z",
+    "endTime": "2024-06-30T20:00:00Z",
+    "location": "Kaasutehtaankatu 1, 00540 Helsinki",
+    "url": "https://tuska.fi",
+    "tickets": "https://www.lippu.fi/artist/tuska"
+  },
+  {
+    "id": 2,
+    "title": "Hellsinki Metal Festival",
+    "description": "Hellsinki Metal Festival täydentää jo olemassa olevaa kaupungin hienoa tapahtumatarjontaa. Uusi ulkoilmafestivaali tullaan järjestämään Helsingin jäähallin alueella Nordenskjöldinkadulla, tutummin sanottuna Nordiksella.",
+    "startTime": "2024-08-09T11:00:00Z",
+    "endTime": "2024-08-10T20:00:00Z",
+    "location": "Nordenskiöldinkatu 11-13, 00250 Helsinki",
+    "url": "https://www.hellsinkimetalfestival.fi",
+    "tickets": "https://www.lippu.fi/artist/hellsinki-metal-festival"
+  },
+  {
+    "id": 3,
+    "title": "Nummirock Metal Festival",
+    "description": "Nummirock on metallimusiikin festivaali Kauhajoella.",
+    "startTime": "2024-06-19T11:00:00Z",
+    "endTime": "2024-06-22T20:00:00Z",
+    "location": "Kauhajoki",
+    "url": "https://nummirock.fi",
+    "tickets": "https://www.lippu.fi/artist/nummirock"
+  },
+  {
+    "id": 4,
+    "title": "Steelfest Open Air",
+    "description": "Steelfest on metallimusiikin festivaali Hyvinkäällä.",
+    "startTime": "2024-05-16T11:00:00Z",
+    "endTime": "2024-05-18T20:00:00Z",
+    "location": "Hyvinkää",
+    "url": "https://steelfest.fi",
+    "tickets": "https://steelfest.fi/product-category/tickets"
+  },
+  {
+    "id": 5,
+    "title": "Provinssirock Festival",
+    "description": "Provinssirock on musiikkifestivaali, jossa on myös metallimusiikkia, Seinäjoella.",
+    "startTime": "2024-06-27T11:00:00Z",
+    "endTime": "2024-06-29T20:00:00Z",
+    "location": "Seinäjoki",
+    "url": "https://provinssi.fi",
+    "tickets": "https://www.lippu.fi/artist/provinssi"
+  },
+  {
+    "id": 6,
+    "title": "John Smith Rock Festival",
+    "description": "John Smith on rock- ja metallimusiikin festivaali Laukaassa.",
+    "startTime": "2024-07-18T11:00:00Z",
+    "endTime": "2024-07-20T20:00:00Z",
+    "location": "Laukaa",
+    "url": "https://johnsmith.fi",
+    "tickets": "https://www.lippu.fi/artist/john-smith"
+  }
+]
