@@ -1,5 +1,6 @@
 {
   "name": "jamit-app",
+  "description": "Web app for generating iCal file from events.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
