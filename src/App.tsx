@@ -14,6 +14,9 @@ const router = createBrowserRouter(
       path: "/",
       element: <Root />,
       errorElement: <ErrorPage />,
+      handle: {
+        crumb: "Home",
+      },
 
       children: [
         {
@@ -24,6 +27,9 @@ const router = createBrowserRouter(
               path: "list",
               loader: () => ({ events }),
               element: <EventList />,
+              handle: {
+                crumb: "Event list",
+              },
             },
             {
               path: ":eventId",
@@ -35,11 +41,17 @@ const router = createBrowserRouter(
                 return { event };
               },
               element: <EventView />,
+              handle: {
+                crumb: "Event view",
+              },
             },
             {
               path: "ical",
               loader: () => ({ events }),
               element: <ICal />,
+              handle: {
+                crumb: "iCal",
+              },
             },
           ],
         },

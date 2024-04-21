@@ -1,4 +1,6 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Nav from "./Nav/Nav.tsx";
+import Breadcrumbs from "./Nav/Breadcumbs.tsx";
 
 export default function Root() {
   return (
@@ -6,6 +8,8 @@ export default function Root() {
       <Nav />
 
       <hr />
+
+      <Breadcrumbs />
 
       <Outlet />
     </>
