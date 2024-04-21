@@ -1,0 +1,11 @@
+.Nav {
+  ul {
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      display: inline;
+      margin-right: 1em;
+    }
+  }
+}
