@@ -5,8 +5,11 @@ import ErrorPage from "./ErrorPage";
 import EventList from "./Events/List";
 import EventView from "./Events/View";
 import ICal from "./Events/ICal";
-
 import events from "./events.json";
+import { getUpcomingEvents, getSortedEvents } from "./Events/event";
+
+const sortedEvents = getSortedEvents(events);
+const upcomingEvents = getUpcomingEvents(sortedEvents);
 
 const router = createBrowserRouter(
   [
@@ -25,7 +28,7 @@ const router = createBrowserRouter(
           children: [
             {
               path: "list",
-              loader: () => ({ events }),
+              loader: () => ({ events: sortedEvents }),
               element: <EventList />,
               handle: {
                 crumb: "Event list",
@@ -47,7 +50,7 @@ const router = createBrowserRouter(
             },
             {
               path: "ical",
-              loader: () => ({ events }),
+              loader: () => ({ events: upcomingEvents }),
               element: <ICal />,
               handle: {
                 crumb: "iCal",

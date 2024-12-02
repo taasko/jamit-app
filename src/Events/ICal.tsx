@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ical, { ICalCalendarMethod } from "ical-generator";
+import { addYears, endOfYear, formatISO } from "date-fns";
 import { FestivalEvent } from ".";
-import { eventToIcal } from "./event";
+import { eventToIcal, getEventTitle } from "./event";
 import classes from "./ICal.module.css";
 
 type LoaderData = {
@@ -15,14 +16,17 @@ type Query = {
   hiddenIds: number[];
 };
 
+const formatISODate = (date: Date = new Date()): string =>
+  formatISO(date, { representation: "date" });
+
+const endOfNextYear = endOfYear(addYears(new Date(), 1));
+
 export default function ICal() {
   const { events } = useLoaderData() as LoaderData;
 
-  events.sort((a, b) => a.startTime.localeCompare(b.startTime));
-
   const [query, setQuery] = useState<Query>({
-    dateStart: "",
-    dateEnd: "",
+    dateStart: formatISODate(),
+    dateEnd: formatISODate(endOfNextYear),
     hiddenIds: [],
   });
 
@@ -88,6 +92,8 @@ export default function ICal() {
             type="date"
             id="dateStart"
             name="dateStart"
+            value={query.dateStart}
+            min={formatISODate()}
             onChange={handleDateChange}
           />
 
@@ -96,11 +102,13 @@ export default function ICal() {
             type="date"
             id="dateEnd"
             name="dateEnd"
+            value={query.dateEnd}
+            max={formatISODate(endOfNextYear)}
             onChange={handleDateChange}
           />
         </div>
 
-        <ul className={classes.icalEventUl}>
+        <ul className={"unstyled-ul"}>
           {events.map((e) => (
             <li key={e.id}>
               <span
@@ -110,8 +118,10 @@ export default function ICal() {
                     : ""
                 }
               >
-                {e.title}
+                {getEventTitle(e)}
               </span>
+
+              <br />
 
               <label>
                 <input
@@ -119,7 +129,7 @@ export default function ICal() {
                   id={e.id.toString()}
                   defaultChecked={hiddenIds?.includes(e.id)}
                   onChange={handleCheckboxToggle}
-                ></input>
+                />
                 Ei kiinnosta
               </label>
             </li>

@@ -7,6 +7,4 @@ export type FestivalEvent = {
   location: string;
   url: string;
   tickets: string;
-
-  [key: string]: string;
 };
