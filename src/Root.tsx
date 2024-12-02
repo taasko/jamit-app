@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav/Nav.tsx";
 import Breadcrumbs from "./Nav/Breadcumbs.tsx";
+import "./global.css";
 
 export default function Root() {
   return (
