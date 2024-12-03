@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Root from "./Root";
 import ErrorPage from "./ErrorPage";
+import Home from "./Home";
 import EventList from "./Events/List";
 import EventView from "./Events/View";
 import ICal from "./Events/ICal";
@@ -22,6 +23,10 @@ const router = createBrowserRouter(
       },
 
       children: [
+        {
+          index: true,
+          element: <Home />,
+        },
         {
           path: "events",
           loader: () => ({ events }),
