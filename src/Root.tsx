@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav/Nav.tsx";
 import Breadcrumbs from "./Nav/Breadcumbs.tsx";
-import "./global.module.css";
+import globalClasses from "./global.module.css";
 
 export default function Root() {
   return (
-    <>
+    <div className={globalClasses.container}>
       <Nav />
 
       <hr />
@@ -13,6 +13,6 @@ export default function Root() {
       <Breadcrumbs />
 
       <Outlet />
-    </>
+    </div>
   );
 }

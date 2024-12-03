@@ -1,13 +1,16 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { FestivalEvent } from ".";
 import { getEventTitle, getPastEvents, getUpcomingEvents } from "./event";
+import globalClasses from "../global.module.css";
 
 type LoaderData = {
   events: FestivalEvent[];
 };
 
 const EventList = (events: FestivalEvent[]) => (
-  <ul>{events.map((e) => EventListItem(e))}</ul>
+  <ul className={globalClasses.unstyledUl}>
+    {events.map((e) => EventListItem(e))}
+  </ul>
 );
 
 const EventListItem = (event: FestivalEvent) => (

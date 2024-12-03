@@ -6,11 +6,35 @@ body {
     sans-serif;
 }
 
+.container {
+  width: 960px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .unstyled-ul {
   list-style-type: none;
   padding-left: 0;
 }
 
+.unstyled-button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
 .line-through {
   text-decoration: line-through;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(28, 28, 28);
+    color: rgb(238, 238, 238);
+  }
+
+  a {
+    color: rgb(238, 238, 238);
+  }
 }
