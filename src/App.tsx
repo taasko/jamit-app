@@ -18,7 +18,7 @@ const router = createBrowserRouter(
       element: <Root />,
       errorElement: <ErrorPage />,
       handle: {
-        crumb: "Home",
+        crumb: "Koti",
       },
 
       children: [
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
           path: "events",
           loader: () => ({ events }),
           handle: {
-            crumb: "Events",
+            crumb: "Tapahtumat",
           },
           children: [
             {
@@ -34,7 +34,7 @@ const router = createBrowserRouter(
               loader: () => ({ events: sortedEvents }),
               element: <EventList />,
               handle: {
-                crumb: "List",
+                crumb: "Lista",
               },
             },
             {
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
               },
               element: <EventView />,
               handle: {
-                crumb: "View",
+                crumb: "Tutki",
               },
             },
             {

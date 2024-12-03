@@ -9,7 +9,7 @@ export default function Nav() {
           <Link to={"/"}>🏠</Link>
         </li>
         <li>
-          <Link to={"/events/list"}>Event list</Link>
+          <Link to={"/events/list"}>Tapahtumat</Link>
         </li>
         <li>
           <Link to={"/events/ical"}>iCal</Link>
