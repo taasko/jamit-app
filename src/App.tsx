@@ -25,13 +25,16 @@ const router = createBrowserRouter(
         {
           path: "events",
           loader: () => ({ events }),
+          handle: {
+            crumb: "Events",
+          },
           children: [
             {
               path: "list",
               loader: () => ({ events: sortedEvents }),
               element: <EventList />,
               handle: {
-                crumb: "Event list",
+                crumb: "List",
               },
             },
             {
@@ -45,7 +48,7 @@ const router = createBrowserRouter(
               },
               element: <EventView />,
               handle: {
-                crumb: "Event view",
+                crumb: "View",
               },
             },
             {

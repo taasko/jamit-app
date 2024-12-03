@@ -6,7 +6,7 @@ export default function Nav() {
     <nav className={classes.Nav}>
       <ul>
         <li>
-          <Link to={"/"}>/</Link>
+          <Link to={"/"}>🏠</Link>
         </li>
         <li>
           <Link to={"/events/list"}>Event list</Link>
