@@ -1,5 +1,9 @@
-.line-through {
-  text-decoration: line-through;
+.ICal {
+  ul {
+    li {
+      margin-bottom: 1em;
+    }
+  }
 }
 
 .input-grid {

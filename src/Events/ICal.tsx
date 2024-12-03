@@ -1,10 +1,17 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import ical, { ICalCalendarMethod } from "ical-generator";
 import { addYears, endOfYear, formatISO } from "date-fns";
 import { FestivalEvent } from ".";
 import { eventToIcal, getEventTitle } from "./event";
 import classes from "./ICal.module.css";
+import { dateFormat } from "../util.ts";
+import globalClasses from "../global.module.css";
 
 type LoaderData = {
   events: FestivalEvent[];
@@ -23,12 +30,27 @@ const endOfNextYear = endOfYear(addYears(new Date(), 1));
 
 export default function ICal() {
   const { events } = useLoaderData() as LoaderData;
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const [query, setQuery] = useState<Query>({
-    dateStart: formatISODate(),
-    dateEnd: formatISODate(endOfNextYear),
-    hiddenIds: [],
-  });
+  const queryParams = new URLSearchParams(location.search);
+  const initialQuery: Query = {
+    dateStart: queryParams.get("dateStart") || formatISODate(),
+    dateEnd: queryParams.get("dateEnd") || formatISODate(endOfNextYear),
+    hiddenIds: queryParams.get("hiddenIds")?.split(",").map(Number) ?? [],
+  };
+
+  const [query, setQuery] = useState<Query>(initialQuery);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("dateStart", query.dateStart);
+    params.set("dateEnd", query.dateEnd);
+    if (query.hiddenIds.length > 0) {
+      params.set("hiddenIds", query.hiddenIds.join(","));
+    }
+    navigate({ search: params.toString() }, { replace: true });
+  }, [query, navigate]);
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery({ ...query, [event.target.id]: event.target.value });
@@ -82,7 +104,7 @@ export default function ICal() {
   const { hiddenIds } = query;
 
   return (
-    <>
+    <div className={classes.ICal}>
       <h1>Generoi iCal</h1>
 
       <form onSubmit={handleDownload}>
@@ -108,18 +130,24 @@ export default function ICal() {
           />
         </div>
 
-        <ul className={"unstyled-ul"}>
+        <ul className={globalClasses.unstyledUl}>
           {events.map((e) => (
             <li key={e.id}>
               <span
                 className={
-                  !filteredEvents.map((e) => e.id).includes(e.id)
-                    ? classes.lineThrough
+                  !filteredEvents.find((ev) => ev.id === e.id)
+                    ? globalClasses.lineThrough
                     : ""
                 }
               >
-                {getEventTitle(e)}
+                <Link to={"/events/" + e.id}>{getEventTitle(e)}</Link>
               </span>
+
+              <br />
+
+              <time>
+                {dateFormat(e.startTime)} - {dateFormat(e.endTime)}
+              </time>
 
               <br />
 
@@ -136,8 +164,10 @@ export default function ICal() {
           ))}
         </ul>
 
-        <button>Lataa iCal-tiedosto</button>
+        <button disabled={filteredEvents.length < 1}>
+          Lataa iCal-tiedosto
+        </button>
       </form>
-    </>
+    </div>
   );
 }
